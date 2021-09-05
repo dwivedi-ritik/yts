@@ -4,7 +4,7 @@ const BtnComp = (props) => {
     const { type, url } = props
     return (
         <div className="ml-4">
-            <a class="block bg-yellow-400 font-bold rounded-xl px-6 py-4 flex justify-center cursor-pointer hover:shadow-lg" target="_blank" href={url}>{type}</a>
+            <a class="block bg-yellow-400 font-bold rounded-xl px-6 py-4 flex justify-center cursor-pointer hover:shadow-lg" target="_blank" rel="noreferrer" href={url}>{type}</a>
         </div>
     )
 }
@@ -36,7 +36,7 @@ const MovieDetails = (props) => {
             </div>
             <div class="flex flex-col items-center">
                 <div className="flex">
-                    {movie.torrents.map(el => <BtnComp type={el.quality} url={el.url} />)}
+                    {movie.torrents.map(el => <BtnComp type={el.quality} url={el.url} key={el.url} />)}
                 </div>
                 <div class="my-6 flex space-x-5">
                     <input value="magent:8768726gjhgadjhadjaskdkdas" class="bg-gray-100 rounded-lg p-3 text-gray-500" />
