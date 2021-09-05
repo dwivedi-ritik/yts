@@ -5,7 +5,7 @@ import MovieList from './MovieList'
 
 const OpsErr = () => {
     return (
-        <p className="text-sm text-center mt-4 text-gray-400">Ops there is nothing :(</p>
+        <p className="text-sm text-center mt-4 text-gray-400">Ops there is nothing out there:(</p>
     )
 }
 
