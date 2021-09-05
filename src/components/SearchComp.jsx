@@ -3,6 +3,12 @@ import axios from 'axios'
 
 import MovieList from './MovieList'
 
+const OpsErr = () => {
+    return (
+        <p className="text-sm text-center mt-4 text-gray-400">Ops there is nothing :(</p>
+    )
+}
+
 class SearchComp extends React.Component {
     constructor() {
         super()
@@ -25,7 +31,8 @@ class SearchComp extends React.Component {
         }
         const res = await axios(obj)
         const data = await res.data
-        if (data.movie_count !== 0)
+        console.log(data)
+        if (data.data.movie_count !== 0)
             return data.data.movies
         return []
     }
@@ -43,6 +50,8 @@ class SearchComp extends React.Component {
         let movieList
         if (showList && moviesData.length) {
             movieList = <MovieList moviesData={moviesData} />
+        } else if (moviesData.length === 0) {
+            movieList = <OpsErr />
         }
         return (
             <React.Fragment>
