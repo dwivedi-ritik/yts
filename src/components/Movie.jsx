@@ -15,7 +15,7 @@ const Movie = (props) => {
             {movieDetails}
             <div className="my-5 mx-5 sm:max-w-xl sm:mx-auto">
                 <div className="bg-white shadow-lg border-gray-100 max-h-80	 border rounded-2xl sm:rounded-3xl p-3 sm:p-8 flex space-x-2 ">
-                    <div className="w-auto h-12 sm:mr-2">
+                    <div className="w-auto min-h-10 sm:mr-2">
                         <img className="rounded-xl shadow-lg w-auto" src={movie.medium_cover_image} alt="" ></img>
                     </div>
                     <div className="flex flex-col space-y-1">

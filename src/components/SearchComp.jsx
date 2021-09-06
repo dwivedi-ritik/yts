@@ -9,12 +9,22 @@ const OpsErr = () => {
     )
 }
 
+const Spinner = () => {
+    return (
+        <div class="mt-8 mt-14 flex justify-center items-center">
+            <div class="animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-t-2 border-yellow-300"></div>
+        </div>
+    )
+}
+
+
 class SearchComp extends React.Component {
     constructor() {
         super()
         this.state = {
             usrInp: '',
             showList: false,
+            showSpinner: false,
             moviesData: []
         }
     }
@@ -40,13 +50,22 @@ class SearchComp extends React.Component {
     searchMovie = async () => {
         const { usrInp } = this.state
         if (usrInp) {
+            this.setState(() => {
+                return {
+                    showSpinner: true,
+                    showList: false
+                }
+            })
             const moviesData = await this.fetchMovies(usrInp)
-            this.setState({ showList: true, moviesData })
+            this.setState(() => {
+                return { showList: true, moviesData, showSpinner: false }
+            })
         }
     }
     render() {
-        const { usrInp, showList, moviesData } = this.state
-        let movieList
+        const { usrInp, showList, moviesData, showSpinner } = this.state
+        let movieList, spin
+        spin = showSpinner ? <Spinner /> : null
         if (showList && moviesData !== null) {
             movieList = <MovieList moviesData={moviesData} />
         } else if (moviesData === null) {
@@ -64,7 +83,7 @@ class SearchComp extends React.Component {
                         </div>
                     </div>
                 </div>
-
+                {spin}
                 {movieList}
             </React.Fragment>
         )
