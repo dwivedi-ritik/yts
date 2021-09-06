@@ -45,8 +45,12 @@ class SearchComp extends React.Component {
             const res = await axios(obj)
             const data = await res.data
             console.log(data)
+
             if (data.data.movie_count !== 0)
                 return data.data.movies
+            else {
+                return null
+            }
 
         }
         catch (err) {
