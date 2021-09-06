@@ -21,7 +21,7 @@ const Movie = (props) => {
                     <div className="flex flex-col space-y-1">
                         <div className="flex justify-between items-start">
                             <h2 className="text-sm sm:text-2xl font-bold">{movie.title}</h2>
-                            <div className="bg-yellow-400 font-bold rounded-lg p-1 sm:p-2"><p className="text-xs sm:text-sm">{movie.rating}</p></div>
+                            <div className="bg-yellow-400 font-bold text-white rounded-lg p-1 sm:p-2"><p className="text-xs sm:text-sm">{movie.rating}</p></div>
                         </div>
                         <div className="flex flex-col items-end space-y-1 mr-4">
                             <p className="text-gray-400 max-h-80">{movie.summary.substring(0, 160)}....</p>
