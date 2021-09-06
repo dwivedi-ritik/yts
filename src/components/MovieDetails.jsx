@@ -31,6 +31,14 @@ const MovieDetails = (props) => {
                             <p className="font-bold text-xl text-gray-800">The Genres</p>
                             <p className="text-gray-600 my-3  ">{movie.genres.join(" ")}</p>
                         </div>
+
+                        <div className="mt-5">
+                            <p className="font-bold text-xl text-gray-800">Movie time</p>
+                            <p className="text-gray-600 my-3">{movie.runtime} minutes</p>
+                        </div>
+                        <div className="my-4 mx-10">
+                            <a class="block bg-yellow-400 px-2 py-1 w-xl rounded-lg text-xs font-bold sm:rounded-xl sm:px-6 sm:py-4 flex justify-center cursor-pointer hover:shadow-lg" target="_blank" rel="noreferrer" href={`https://www.youtube.com/watch?v=${movie.yt_trailer_code}`}>Watch Trailer</a>
+                        </div>
                     </div>
                 </div>
             </div>
