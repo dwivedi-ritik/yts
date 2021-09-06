@@ -47,14 +47,14 @@ class SearchComp extends React.Component {
     render() {
         const { usrInp, showList, moviesData } = this.state
         let movieList
-        if (showList && moviesData.length) {
+        if (showList && moviesData !== null) {
             movieList = <MovieList moviesData={moviesData} />
-        } else if (!moviesData) {
+        } else if (moviesData === null) {
             movieList = <OpsErr />
         }
         return (
             <React.Fragment>
-                <div className="mt-20 mx-auto">
+                <div className="mt-4 sm:mt-15 mx-auto">
                     <div className="flex justify-center items-center w-30">
                         <input className="text-gray-700 shadow-sm rounded-l-full p-6 h-12 w-auto sm:w-6xl focus:outline-none" id="search" type="text" value={usrInp} onChange={this.getInpVal} placeholder="Search Movie"></input>
                         <div className="">

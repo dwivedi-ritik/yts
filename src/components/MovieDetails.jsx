@@ -14,27 +14,27 @@ const MovieDetails = (props) => {
     const movie = props.data
 
     return (
-        <div class="m-5 lg:mx-auto p-6 bg-white rounded-2xl shadow-2xl max-w-5xl relative">
-            <div class="flex">
-                <div class="block sm:flex">
-                    <img src={movie.medium_cover_image} class="rounded-lg my-2 shadow-xl sm:shadow-2xl mx-auto sm:block" width="80" alt="movie poster" />
-                    <div class="sm:ml-8 ">
-                        <p class="text-lg sm:text-3xl font-bold  my-8">{movie.title}</p>
-                        <div class="bg-yellow-400 font-bold rounded-xl p-2 w-14 flex justify-center">{movie.rating}</div>
+        <div className="m-5 lg:mx-auto p-6 bg-white rounded-2xl shadow-2xl max-w-5xl relative">
+            <div className="flex">
+                <div className="block sm:flex">
+                    <img src={movie.medium_cover_image} className="rounded-lg my-2 shadow-xl sm:shadow-2xl mx-auto sm:block cover" alt="movie poster" />
+                    <div className="sm:ml-8 ">
+                        <p className="text-lg sm:text-3xl font-bold  my-8">{movie.title}</p>
+                        <div className="bg-yellow-400 font-bold rounded-xl p-2 w-14 flex justify-center">{movie.rating}</div>
 
-                        <div class="mt-4">
-                            <p class="font-bold text-xl text-gray-800">Summary</p>
-                            <p class="text-gray-600 my-3 text-gray-400 text-xs">{movie.summary}</p>
+                        <div className="mt-4">
+                            <p className="font-bold text-xl text-gray-800">Summary</p>
+                            <p className="text-gray-600 my-3 text-gray-400 text-xs">{movie.summary}</p>
                         </div>
 
-                        <div class="mt-5">
-                            <p class="font-bold text-xl text-gray-800">The Genres</p>
-                            <p class="text-gray-600 my-3  ">{movie.genres.join(" ")}</p>
+                        <div className="mt-5">
+                            <p className="font-bold text-xl text-gray-800">The Genres</p>
+                            <p className="text-gray-600 my-3  ">{movie.genres.join(" ")}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col items-center">
+            <div className="flex flex-col items-center">
                 <div className="grid grid-cols-3 gap-2">
                     {movie.torrents.map(el => <BtnComp type={el.quality} url={el.url} key={el.url} />)}
                 </div>
