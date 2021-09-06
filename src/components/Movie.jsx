@@ -13,15 +13,15 @@ const Movie = (props) => {
     return (
         <React.Fragment>
             {movieDetails}
-            <div className="py-5 my-4 max-w-xl sm:max-w-xl mx-auto">
+            <div className="my-5 mx-5 sm:max-w-xl sm:mx-auto">
                 <div className="bg-white shadow-lg border-gray-100 max-h-80	 border rounded-3xl sm:rounded-3xl p-8 flex space-x-8">
-                    <div className="ml-4">
+                    <div className="ml-4 max-w-xl">
                         <img className="rounded-2xl shadow-lg" src={movie.medium_cover_image} alt=""></img>
                     </div>
                     <div className="flex flex-col space-y-1">
                         <div className="flex justify-between items-start">
-                            <h2 className="text-2xl font-bold">{movie.title}</h2>
-                            <div className="bg-yellow-400 font-bold rounded-xl p-2">{movie.rating}</div>
+                            <h2 className="text-sm sm:text-2xl font-bold">{movie.title}</h2>
+                            <div className="bg-yellow-400 font-bold rounded-lg p-1 sm:p-2"><p className="text-xs sm:text-sm">{movie.rating}</p></div>
                         </div>
                         <div className="flex flex-col items-end space-y-1 mr-4">
                             <p className="text-gray-400 max-h-80">{movie.summary.substring(0, 160)}....</p>

@@ -34,14 +34,13 @@ class SearchComp extends React.Component {
         console.log(data)
         if (data.data.movie_count !== 0)
             return data.data.movies
-        return []
+        return null
     }
 
     searchMovie = async () => {
         const { usrInp } = this.state
         if (usrInp) {
             const moviesData = await this.fetchMovies(usrInp)
-
             this.setState({ showList: true, moviesData })
         }
     }
@@ -50,7 +49,7 @@ class SearchComp extends React.Component {
         let movieList
         if (showList && moviesData.length) {
             movieList = <MovieList moviesData={moviesData} />
-        } else if (moviesData.length === 0) {
+        } else if (!moviesData) {
             movieList = <OpsErr />
         }
         return (
