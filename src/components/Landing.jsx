@@ -11,7 +11,7 @@ const Landing = () => {
                         </svg>
                         <p className="leading-relaxed text-gray-500 text-xs sm:text-lg">Nobody read these texts well if you still wish too then here you again .This is a web app where you can download hollywood torrents movies. i have added yts mx api but assholes did not added cors in their API so i have to make and host a proxy server. This app written which basic react and tailwind as my first project in react ,some Component i copied from tailblocks not all just this section and footer section even logo too lol. i have added github repo in footer section. Switch to deploy branch for all codebase and if you are still reading this than sorry brother you just wasted your 30 sec of life just like rest of life lol</p>
                         <span className="inline-block h-1 w-10 rounded bg-yellow-500 mt-8 mb-6"></span>
-                        <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">LORD RITIK</h2>
+                        <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">LORD RISHU</h2>
                         <p className="text-gray-500">I made this shit</p>
                     </div>
                 </div>
