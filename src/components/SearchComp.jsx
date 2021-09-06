@@ -47,6 +47,9 @@ class SearchComp extends React.Component {
             console.log(data)
             if (data.data.movie_count !== 0)
                 return data.data.movies
+            else {
+                return null
+            }
 
         }
         catch (err) {
