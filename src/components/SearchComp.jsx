@@ -86,14 +86,12 @@ class SearchComp extends React.Component {
         }
         return (
             <React.Fragment>
-                <div className="mt-4 sm:mt-15 mx-auto">
-                    <div className="flex justify-center items-center  sm:w-2xl">
-                        <input className="text-gray-700 shadow-sm rounded-l-full px-3 sm:p-6 h-12 sm:w-6xl focus:outline-none" id="search" type="text" value={usrInp} onChange={this.getInpVal} placeholder="Search Movie"></input>
-                        <div className="">
-                            <button onClick={this.searchMovie} className="bg-yellow-300 text-white h-12 p-3 rounded-r-full hover:bg-yellow-400 focus:outline-none">
-                                Search
-                            </button>
-                        </div>
+                <div className="mt-4 flex justify-center sm:mt-15">
+                    <input className="text-gray-700 shadow-sm rounded-l-full px-3 py-2 h-10  focus:outline-none" id="search" type="text" value={usrInp} onChange={this.getInpVal} placeholder="Search Movie"></input>
+                    <div className="">
+                        <button onClick={this.searchMovie} className="bg-yellow-300 text-white h-10 px-2 rounded-r-full hover:bg-yellow-400 focus:outline-none">
+                            Search
+                        </button>
                     </div>
                 </div>
                 {spin}
