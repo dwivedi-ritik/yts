@@ -4,8 +4,8 @@ const BtnComp = (props) => {
     const { type, url } = props
     return (
         <div className="ml-2 mt-3">
-            <a class="bg-yellow-400  px-2 py-3 rounded-lg text-xs font-bold sm:rounded-xl sm:px-6 sm:py-4 flex justify-center cursor-pointer hover:shadow-lg" target="_blank" rel="noreferrer" href={url}>{type}</a>
-        </div>
+            <a className="bg-yellow-400  px-2 py-3 rounded-lg text-xs font-bold sm:rounded-xl sm:px-6 sm:py-4 flex justify-center cursor-pointer hover:shadow-lg" target="_blank" rel="noreferrer" href={url}>{type}</a>
+        </div >
     )
 }
 
@@ -37,7 +37,7 @@ const MovieDetails = (props) => {
                             <p className="text-gray-600 my-3">{movie.runtime} minutes</p>
                         </div>
                         <div className="my-4 mx-auto">
-                            <a class="bg-yellow-400 px-2 py-3 w-xl rounded-lg text-xs font-bold cursor-pointer hover:shadow-lg" target="_blank" rel="noreferrer" href={`https://www.youtube.com/watch?v=${movie.yt_trailer_code}`}>Watch Trailer</a>
+                            <a className="bg-yellow-400 px-2 py-3 w-xl rounded-lg text-xs font-bold cursor-pointer hover:shadow-lg" target="_blank" rel="noreferrer" href={`https://www.youtube.com/watch?v=${movie.yt_trailer_code}`}>Watch Trailer</a>
                         </div>
                     </div>
                 </div>
