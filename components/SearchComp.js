@@ -42,9 +42,9 @@ export default function SearchComp() {
 
     return (
         <div>
-            <form onSubmit={getData}>
+            <form onSubmit={getData} >
                 <div className="mt-4 flex justify-center sm:mt-15">
-                    <input className="text-gray-700 shadow-sm rounded-l-full px-3 py-2 h-10  focus:outline-none"
+                    <input className="text-gray-700 shadow-sm rounded-l-full px-3 py-2 h-10  focus:outline-none bg-white"
                         id="search"
                         type="text"
                         placeholder="Search Movie"
@@ -61,6 +61,5 @@ export default function SearchComp() {
         </div>
     )
 }
-
 
 
