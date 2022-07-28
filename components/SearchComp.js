@@ -3,20 +3,14 @@ import { useState } from 'react/'
 
 import MovieList from './MovieList'
 import Landing from './Landing'
-
+import Spinner from './Spinner'
 const OpsErr = () => {
     return (
         <p className="text-sm text-center mt-4 text-gray-400">Ops there is nothing out there:(</p>
     )
 }
 
-const Spinner = () => {
-    return (
-        <div className="mt-8 mt-14 flex justify-center items-center">
-            <div className="animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-t-2 border-yellow-300"></div>
-        </div>
-    )
-}
+
 
 const urlToBlob = async (hash) => {
     let res = await fetch(`api/torrent/${hash}`)
@@ -58,13 +52,13 @@ export default function SearchComp() {
         movies = await movies.json()
         if (movies.data.data.movie_count != 0) {
 
-            for (let i in movies.data.data.movies) {
-                for (let j in movies.data.data.movies[i].torrents) {
-                    movies.data.data.movies[i].torrents[j].url = await urlToBlob(movies.data.data.movies[i].torrents[j].hash)
-                }
-            }
+            // for (let i in movies.data.data.movies) {
+            //     for (let j in movies.data.data.movies[i].torrents) {
+            //         movies.data.data.movies[i].torrents[j].url = await urlToBlob(movies.data.data.movies[i].torrents[j].hash)
+            //     }
+            // }
 
-            console.log(movies.data.data)
+            // console.log(movies.data.data)
 
 
             setLanding(<MovieList moviesdata={movies.data.data} />)

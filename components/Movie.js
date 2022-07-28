@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 
 import MovieDetails from './MovieDetails'
 
+
 const Movie = (props) => {
     const movie = props.movie
     let [renderMovie, setMovie] = useState(false)
 
     let movieDetails
     if (renderMovie) {
+        console.log(movie)
         movieDetails = <MovieDetails data={movie} setMovieView={setMovie} />
     }
     return (
@@ -32,7 +34,7 @@ const Movie = (props) => {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

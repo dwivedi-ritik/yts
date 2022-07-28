@@ -1,27 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-const urlToBlob = async (hash) => {
-    let res = await fetch(`api/torrent/${hash}`)
-    let reader = res.body.getReader()
-    let strm = new ReadableStream({
-        async start(controller) {
-            while (true) {
-                const { done, value } = await reader.read()
-                if (done) {
-                    break
-                }
-                controller.enqueue(value)
-            }
-            controller.close()
-            reader.releaseLock()
-        }
-    })
-    let respone = new Response(strm)
-    let blob = await respone.blob()
+import Spinner from "./Spinner"
+import urlToBlob from '../utils'
 
-    let url = await URL.createObjectURL(blob)
-    return url
-}
 
 const BtnComp = (props) => {
     const { type, url, file } = props
@@ -30,12 +11,13 @@ const BtnComp = (props) => {
             <a className="bg-yellow-400  px-2 py-3 rounded-lg text-xs font-bold sm:rounded-xl sm:px-6 sm:py-4 flex justify-center cursor-pointer hover:shadow-lg"
                 target="_blank" rel="noreferrer" href={url} download={file + ".torrent"}
             >{type}</a>
-        </div >
+        </div>
     )
 }
 
 const MovieDetails = (props) => {
     const movie = props.data
+    let [downloadBtn, setDownloadBtn] = useState(false)
 
     useEffect(async () => {
         console.log("Movie detail mounted")
@@ -43,6 +25,7 @@ const MovieDetails = (props) => {
             movie.torrents[i].url = await urlToBlob(props.data.torrents[i].hash)
         }
         console.log(movie.torrents)
+        setDownloadBtn(true)
 
     }, [])
     return (
@@ -76,7 +59,7 @@ const MovieDetails = (props) => {
             </div>
             <div className="flex flex-col items-center">
                 <div className="grid grid-cols-3 gap-2">
-                    {movie.torrents.map(el => <BtnComp type={el.quality} url={el.url} key={el.url} file={movie.slug} />)}
+                    {downloadBtn ? movie.torrents.map(el => <BtnComp type={el.quality} url={el.url} key={el.hash} file={movie.slug} />) : <Spinner />}
                 </div>
                 {/* <div class="mt-6 flex-col sm:flex space-x-5">
                     <input value="magent:8768726gjhgadjhadjaskdkdas" class="bg-gray-100 rounded-sm sm:rounded-lg p-1 sm:p-3 text-gray-500" />
