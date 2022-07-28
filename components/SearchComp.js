@@ -4,35 +4,11 @@ import { useState } from 'react/'
 import MovieList from './MovieList'
 import Landing from './Landing'
 import Spinner from './Spinner'
+
 const OpsErr = () => {
     return (
         <p className="text-sm text-center mt-4 text-gray-400">Ops there is nothing out there:(</p>
     )
-}
-
-
-
-const urlToBlob = async (hash) => {
-    let res = await fetch(`api/torrent/${hash}`)
-    let reader = res.body.getReader()
-    let strm = new ReadableStream({
-        async start(controller) {
-            while (true) {
-                const { done, value } = await reader.read()
-                if (done) {
-                    break
-                }
-                controller.enqueue(value)
-            }
-            controller.close()
-            reader.releaseLock()
-        }
-    })
-    let respone = new Response(strm)
-    let blob = await respone.blob()
-
-    let url = await URL.createObjectURL(blob)
-    return url
 }
 
 export default function SearchComp() {
@@ -52,15 +28,6 @@ export default function SearchComp() {
         movies = await movies.json()
         if (movies.data.data.movie_count != 0) {
 
-            // for (let i in movies.data.data.movies) {
-            //     for (let j in movies.data.data.movies[i].torrents) {
-            //         movies.data.data.movies[i].torrents[j].url = await urlToBlob(movies.data.data.movies[i].torrents[j].hash)
-            //     }
-            // }
-
-            // console.log(movies.data.data)
-
-
             setLanding(<MovieList moviesdata={movies.data.data} />)
         }
 
@@ -70,24 +37,29 @@ export default function SearchComp() {
 
     return (
         <div>
-            <form onSubmit={getData} >
-                <div className="mt-4 flex justify-center sm:mt-15">
-                    <input className="text-gray-700 shadow-sm rounded-l-full px-3 py-2 h-10  focus:outline-none bg-white"
-                        id="search"
-                        type="text"
-                        placeholder="Search Movie"
-                        ref={usrInp}></input>
-                    <div className="">
-                        <button className="bg-yellow-300 text-white h-10 px-2 rounded-r-full hover:bg-yellow-400 focus:outline-none"
+            <form onSubmit={getData}>
+                <div class="flex flex-wrap mx-3 mb-6 justify-center">
+                    <div class="w-xl px-3 flex items-baseline gap-2">
+                        <div>
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password"
+                                type="text" placeholder="Search Your Movie" ref={usrInp}>
+                            </input>
+                            <p class="text-gray-600 text-xs italic">Search your favorite hollywood movies and shows.</p>
+                        </div>
+                        <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
                             onClick={getData}>
-                            Search
+                            Button
                         </button>
                     </div>
                 </div>
+
             </form>
             {landing}
+
         </div>
     )
 }
+
+// Legacy codes
 
 
