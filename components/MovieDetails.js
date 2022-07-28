@@ -25,7 +25,6 @@ const urlToBlob = async (hash) => {
 
 const BtnComp = (props) => {
     const { type, url, file } = props
-    console.log(url)
     return (
         <div className="ml-2 mt-3">
             <a className="bg-yellow-400  px-2 py-3 rounded-lg text-xs font-bold sm:rounded-xl sm:px-6 sm:py-4 flex justify-center cursor-pointer hover:shadow-lg"
@@ -36,15 +35,16 @@ const BtnComp = (props) => {
 }
 
 const MovieDetails = (props) => {
-
+    const movie = props.data
 
     useEffect(async () => {
+        console.log("Movie detail mounted")
         for (let i in props.data.torrents) {
-            props.data.torrents[i].url = await urlToBlob(props.data.torrents[i].hash)
+            movie.torrents[i].url = await urlToBlob(props.data.torrents[i].hash)
         }
+        console.log(movie.torrents)
 
     }, [])
-    const movie = props.data
     return (
         <div className="m-5 lg:mx-auto p-6 bg-white rounded-2xl shadow-2xl max-w-5xl relative">
             <div className="flex">

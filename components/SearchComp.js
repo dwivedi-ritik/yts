@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useState } from 'react/'
-import Link from "next/link"
 
 import MovieList from './MovieList'
 import Landing from './Landing'
@@ -19,6 +18,29 @@ const Spinner = () => {
     )
 }
 
+const urlToBlob = async (hash) => {
+    let res = await fetch(`api/torrent/${hash}`)
+    let reader = res.body.getReader()
+    let strm = new ReadableStream({
+        async start(controller) {
+            while (true) {
+                const { done, value } = await reader.read()
+                if (done) {
+                    break
+                }
+                controller.enqueue(value)
+            }
+            controller.close()
+            reader.releaseLock()
+        }
+    })
+    let respone = new Response(strm)
+    let blob = await respone.blob()
+
+    let url = await URL.createObjectURL(blob)
+    return url
+}
+
 export default function SearchComp() {
     let [landing, setLanding] = useState(<Landing />)
 
@@ -34,8 +56,20 @@ export default function SearchComp() {
             })
         })
         movies = await movies.json()
-        if (movies.data.data.movie_count != 0)
+        if (movies.data.data.movie_count != 0) {
+
+            for (let i in movies.data.data.movies) {
+                for (let j in movies.data.data.movies[i].torrents) {
+                    movies.data.data.movies[i].torrents[j].url = await urlToBlob(movies.data.data.movies[i].torrents[j].hash)
+                }
+            }
+
+            console.log(movies.data.data)
+
+
             setLanding(<MovieList moviesdata={movies.data.data} />)
+        }
+
         else setLanding(<OpsErr />)
 
     }
