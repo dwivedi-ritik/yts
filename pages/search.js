@@ -1,7 +1,12 @@
-// Will implement later
-
+import Header from "../components/Header"
+import SearchComp from "../components/SearchComp"
+import Footer from "../components/Footer"
 export default function Search() {
     return (
-        <p>This is search pages</p>
+        <div>
+            <Header />
+            <SearchComp />
+            <Footer />
+        </div>
     )
 }
