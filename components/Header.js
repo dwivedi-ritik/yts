@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const Header = () => {
     return (
         <header className="text-gray-600 flex flex-col items-center md:flex-row md:justify-around my-3">
@@ -11,16 +13,16 @@ const Header = () => {
             </div>
             <ul className="flex items-center justify-center gap-3">
                 <li>
-                    <a href="/" className="block text-blue-700 rounded" aria-current="page">Home</a>
+                    <Link href="/" className="block text-blue-700 rounded" aria-current="page">Home</Link>
                 </li>
                 <li>
-                    <a href="/search" className="block hover:text-blue-700 rounded">Search</a>
+                    <Link href="/search" className="block hover:text-blue-700 rounded">Search</Link>
                 </li>
                 <li>
-                    <a href="#about" className="block hover:text-blue-700 rounded">About</a>
+                    <Link href="#about" className="block hover:text-blue-700 rounded">About</Link>
                 </li>
                 <li>
-                    <a href="#contact" className="block hover:text-blue-700 rounded">Contact</a>
+                    <Link href="#contact" className="block hover:text-blue-700 rounded">Contact</Link>
                 </li>
             </ul>
         </header>
