@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { useState } from 'react/'
 
 import MovieList from './MovieList'
-import Landing from './Landing'
 import Spinner from './Spinner'
 
 const OpsErr = () => {
@@ -12,7 +11,7 @@ const OpsErr = () => {
 }
 
 export default function SearchComp() {
-    let [landing, setLanding] = useState(<Landing />)
+    let [landing, setLanding] = useState('')
 
     let usrInp = useRef()
     const getData = async (e) => {

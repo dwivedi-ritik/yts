@@ -13,7 +13,6 @@ const Header = () => {
             </div>
             <ul className="flex items-center justify-center gap-3 text-base">
                 <li className="px-2 py-1 rounded hover:outline outline-1">
-
                     <Link href="/" className="" aria-current="page">Home</Link>
                 </li>
                 <li className="px-2 py-1 rounded hover:outline outline-1">

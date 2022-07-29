@@ -4,6 +4,11 @@ import Spinner from "./Spinner"
 import { urlToBlob, imgToBlob } from '../utils'
 import NotYetLoaded from './NotYetLoaded'
 
+const Tags = ({ tag }) => {
+    return (
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2" > {tag}</span>
+    )
+}
 
 const BtnComp = (props) => {
     const { type, url, file } = props
@@ -50,7 +55,9 @@ const MovieDetails = (props) => {
 
                     <div className="mt-5">
                         <p className="font-bold text-xl text-gray-800">The Genres</p>
-                        <p className="text-gray-600 my-3  ">{movie.genres.join(" ")}</p>
+                        <div className="px-1 my-3 md:px-3 mx-auto">
+                            {movie.genres.map(el => <Tags tag={el} key={el} />)}
+                        </div>
                     </div>
 
                     <div className="mt-5">
@@ -64,6 +71,7 @@ const MovieDetails = (props) => {
 
             </div>
             <div className="py-8 flex flex-col items-center">
+                <p className="block font-bold text-xl text-gray-800">Downloads</p>
                 <div className="grid grid-cols-3 gap-2">
                     {downloadBtn ? movie.torrents.map(el => <BtnComp type={el.quality} url={el.url} key={el.hash} file={movie.slug} />) : <Spinner />}
                 </div>

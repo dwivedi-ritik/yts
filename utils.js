@@ -24,7 +24,6 @@ const urlToBlob = async (hash) => {
 const imgToBlob = async (slug) => {
     let res = await fetch(`/api/image/${slug}`)
     let reader = res.body.getReader()
-    console.log(res)
     let strm = new ReadableStream({
         async start(controller) {
             while (true) {
