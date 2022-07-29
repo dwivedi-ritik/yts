@@ -10,7 +10,7 @@ const Tags = ({ tag }) => {
 }
 
 const Img = ({ src }) => {
-    return <img className="w-full h-25 object-top" src={src} alt=""></img>
+    return <img className="w-full max-h-25 object-top" src={src} alt=""></img>
 }
 const Movie = (props) => {
     const movie = props.movie
@@ -24,7 +24,6 @@ const Movie = (props) => {
         <React.Fragment>
             <Link target="_blank" href={"/movie/" + movie.id} rel="noopener noreferrer">
                 <div className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl">
-                    {/* <img className="w-full h-25 object-top" src={((showImg) ? movie.large_cover_image : "#")} alt=""></img> */}
                     {((showImg) ? <Img src={movie.large_cover_image} /> : <NotYetLoaded />)}
                     <div className="px-6 py-4">
                         <div className='flex justify-between items-center'>

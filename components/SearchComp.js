@@ -39,10 +39,10 @@ export default function SearchComp() {
     return (
         <div>
             <form onSubmit={getData}>
-                <div className="flex flex-col my-4 items-center">
+                <div className="flex flex-col my-4 items-center text-base">
                     <div className="w-xl px-3 flex items-baseline gap-2">
                         <div>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password"
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 type="text" placeholder="Search Your Movie" ref={usrInp}>
                             </input>
                         </div>

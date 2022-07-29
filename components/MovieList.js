@@ -6,7 +6,7 @@ const MovieList = (props) => {
     return (
         <React.Fragment>
             <div className='max-w-5xl mx-auto'>
-                <div className='grid grid-cols-1 gap-3 sm:grid-cols-3 px-3 sm:px-0 justify-items-center'>
+                <div className='grid grid-cols-1 gap-3 sm:grid-cols-3 px-3 justify-items-center'>
                     {moviesdata.map(el => <Movie movie={el} key={el.id} />)}
                 </div>
 
