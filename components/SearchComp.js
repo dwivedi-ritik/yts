@@ -3,7 +3,7 @@ import { useState } from 'react/'
 
 import MovieList from './MovieList'
 import Spinner from './Spinner'
-
+import Landing from './Landing'
 const OpsErr = () => {
     return (
         <p className="text-sm text-center mt-4 text-gray-400">Ops there is nothing out there:(</p>
@@ -11,7 +11,7 @@ const OpsErr = () => {
 }
 
 export default function SearchComp() {
-    let [landing, setLanding] = useState('')
+    let [landing, setLanding] = useState(<Landing />)
 
     let usrInp = useRef()
     const getData = async (e) => {
