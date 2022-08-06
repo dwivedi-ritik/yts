@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Head>
         <title>Free Hollywood Movies</title>
-        <meta name="viewport" content="width=device-width"></meta>
         <meta charset="utf-8"></meta>
         <meta description="A movie site to download hollywood"></meta>
       </Head>

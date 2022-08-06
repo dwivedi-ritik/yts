@@ -19,7 +19,7 @@ const Header = () => {
                     <Link href="/search" className="">Search</Link>
                 </li>
                 <li className="px-2 py-1 rounded hover:outline outline-1">
-                    <Link href="#about" className="">About</Link>
+                    <Link href="/about" className="">About</Link>
                 </li>
                 <li className="px-2 py-1 rounded hover:outline outline-1">
                     <Link href="#contact" className="">Contact</Link>
