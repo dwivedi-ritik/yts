@@ -12,25 +12,31 @@ export default function About() {
             </Head>
             <Header />
             <div className="my-12 md:my-20">
-                <p className="text-3xl font-bold text-gray-800 font-serif text-center underline">About the site</p>
-
-                <div className="mt-10 flex justify-center px-3">
+                <div className="mt-10 flex justify-center px-8">
                     <div>
-                        <div className="my-3 text-lg">
-                            <p>This site is made for learning purpose only. Any informations or images associated with any movies
-                                doesn't belong to this site</p>
-                            <p>Neither do this sites own any of the movies or informations related to those movies.</p>
+                        <div className="my-3 text-base md:text-lg">
+                            <p className="text-xl md:text-xl font-bold text-gray-800 font-serif text-start">About the site</p>
+                            <ul className="list-disc">
+                                <li>This site is made for learning purpose only. Any informations or images associated with any movies
+                                    doesn't belong to this site</li>
+                                <li>Neither do this sites own any of the movies or informations related to those movies.</li>
+
+                            </ul>
                         </div>
-                        <div className="my-6 text-lg" >
-                            <p className="text-xl font-bold text-gray-800 font-serif">Only usage information available in public domain</p>
-                            <p>All the movies data are available in the public domain.</p>
-                            <p>All the links associated with the movies are fetched from mutliple other available sources on the internet</p>
+                        <div className="my-6 text-base md:text-lg" >
+                            <p className="text-lg font-bold text-gray-800 font-serif">Public Domain</p>
+                            <ul className="list-disc">
+                                <li>All the movies data are available in the public domain.</li>
+                                <li>All the links associated with the movies are fetched from mutliple other available sources on the internet</li>
+                            </ul>
 
                         </div>
-                        <div className="my-6 text-lg">
-                            <p className="text-xl font-bold text-gray-800 font-serif">Final Verdict</p>
-                            <p>These sites uses Public APIs. APIs that other sites provides for public usage.</p>
-                            <p>Site doesn't encourage piracy in anyway but do promote freedom of the information.</p>
+                        <div className="my-6 text-base md:text-lg">
+                            <p className="text-lg font-bold text-gray-800 font-serif">Final Verdict</p>
+                            <ul className="list-disc">
+                                <li>These sites uses Public APIs. APIs that other sites provides for public usage.</li>
+                                <li>Site doesn't encourage piracy in anyway but do promote freedom of the information.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
